@@ -6,3 +6,43 @@ body {
 a {
   color: #00B7FF;
 }
+
+.title-container{
+  display:inline-flex;
+  flex-wrap: wrap;
+}
+
+.flex-outer{
+  list-style-type: none;
+
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.flex-outer > li{
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-outer > li {
+  margin-bottom: 20px;
+}
+
+.flex-outer input[type='text'], #input-description, .button-flex {
+  width:80%;
+}
+label{
+  text-align: right;
+  width: 15%;
+  font-weight: bold;
+}
+
+.button-flex{
+  justify-content: flex-start;
+
+}
+
+
+
