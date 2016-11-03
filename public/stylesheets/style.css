@@ -26,6 +26,7 @@ a {
   justify-content: space-between;
 }
 
+
 .flex-outer > li {
   margin-bottom: 20px;
 }
@@ -41,8 +42,8 @@ label{
 
 .button-flex{
   justify-content: flex-start;
-
 }
+
 
 
 
