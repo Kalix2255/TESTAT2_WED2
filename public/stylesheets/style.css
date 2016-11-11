@@ -6,6 +6,10 @@ a {
   color: #00B7FF;
 }
 
+p{
+  margin:0px;
+}
+
 header{
   padding: 5px;
   border-bottom: 1px solid;
@@ -29,10 +33,22 @@ button:focus{
   box-shadow: 0 0 5px grey inset;
 }
 
-label{
+.flex-outer > li > label{
   text-align: right;
-  width: 15%;
+  flex: 1 0 160px;
+  width: 160px;
+  max-width: 160px;
   font-weight: bold;
+  margin-right: 10px;
+}
+
+
+
+
+@media (max-width: 557px){
+  .flex-outer > li > label{
+    text-align: left;
+  }
 }
 
 input, textarea{
@@ -43,15 +59,17 @@ input, textarea{
 input:focus, textarea:focus{
   box-shadow: 0 0 3px lightskyblue;
 }
+input[type="checkbox"]{
+  margin-left: 0px;
+}
 
-.title-container{
+.time-title-container{
   display:inline-flex;
   flex-wrap: wrap;
 }
 
 .flex-outer{
   list-style-type: none;
-
   margin: 0 auto;
   padding: 0px;
 }
@@ -59,17 +77,12 @@ input:focus, textarea:focus{
 .flex-outer > li{
   display:flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-
-.flex-outer > li {
   margin-bottom: 20px;
+  align-items: center;
 }
 
-.flex-outer input[type='text'], #input-description, .button-flex {
-  width:80%;
+.flex-outer input[type='text'], #input-description {
+  flex: 1 0 360px;
 }
 
 .pre-menu, .main-menu{
@@ -77,31 +90,50 @@ input:focus, textarea:focus{
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .entry-header{
-  display: flex;
+  display:flex;
   justify-content: space-between;
 }
 
-.time-container{
-  width: 200px;
+.time-title-container{
+  float:left;
+  display: flex;
+  width: 450px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.time-container p{
+  width: 160px;
+  max-width: 160px;
 }
 .title-container{
   width: 60%;
 }
 .rating-container{
-  width: 20%;
+  float:right;
   text-align: right;
 }
 
+.entry-content-container{
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.entry{
+  display: flex;
+  flex-wrap: wrap;
+}
 
-@media (max-width: 48em){
+@media (max-width: 768px){
   .inner-main-menu{
     width: 100%;
   }
   .main-menu button{
     width: 100%;
+  }
+  .entry-header {
+    flex-direction: column-reverse;
   }
 }
 
