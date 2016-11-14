@@ -1,16 +1,16 @@
 <header>
     <h3>Neue Todo</h3>
 </header>
-<form>
+<form action='/adNote' method='post'>
     <ul class="flex-outer">
-        <li><label for="input-title">Titel</label><input type="text" id="input-title"></li>
-        <li><label for="input-description">Beschreibung</label><textarea id="input-description"></textarea></li>
-        <li><label for="input-importance">Wichtigkeit</label><input type="text" id="input-importance"></li>
-        <li><label for="input-doneUntil">Fertig bis</label><input type="text" id="input-doneUntil"></li>
+        <li><label for="input-title">Titel</label><input name="noteTitle" type="text" id="input-title"></li>
+        <li><label for="input-description">Beschreibung</label><textarea name="noteDescriprion"  id="input-description"></textarea></li>
+        <li><label for="input-importance">Wichtigkeit</label><input name="noteRating" type="text" id="input-importance"></li>
+        <li><label for="input-doneUntil">Fertig bis</label><input name="noteDate" type="text" id="input-doneUntil"></li>
         <li class="form-footer">
             <label></label>
             <div>
-            <input type="checkbox">
+            <input name="noteState" type="checkbox">
             <label>Erledigt!</label>
             <p>
                 <button type="submit" name="post">Anlegen</button>
