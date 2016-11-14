@@ -1,10 +1,10 @@
 <header>
     <nav class="pre-menu">
         <div>
-         <button type="submint" name="button_createNewNote">Create new Note</button>
+            <a href="/adNote/"><button type="submit" name="button_createNewNote">Create new Note</button></a>
         </div>
         <div>
-            <button type="submint" name="button_styleChange">Change style</button>
+            <button type="submit" name="button_styleChange">Change style</button>
         </div>
     </nav>
 
@@ -22,32 +22,37 @@
 
 <section class="entry">
 
+  {{#if notes}}
+    {{#each notes}}
+        <div class="entry-content">
 
-    <div class="entry-content">
+            <div class="entry-header">
+                <div class="time-title-container">
+                    <div class="time-container"><p>{{doneU}}</p></div>
+                    <div class="title-container"><p>{{title}}</p></div>
+                </div>
+                <div class="rating-container">
+                    <div class="rating-value" value="{{imp}}"></div>
+                </div>
 
-        <div class="entry-header">
-            <div class="time-title-container">
-                <div class="time-container"><p>Time</p></div>
-                <div class="title-container"><p>Titel</p></div>
             </div>
-            <div class="rating-container">
-                <p>****</p>
-            </div>
 
+            <div class="entry-content-container">
+                <div class="entry-content-check-container">
+                    <input type="checkbox" class="checkbox"><label for="checkbox">Finished</label>
+                </div>
+                <div class="entry-content-description-container">
+                <textarea class="description">{{desc}}</textarea>
+                </div>
+            </div>
         </div>
 
-        <div class="entry-content-container">
-            <div class="entry-content-check-container">
-                <input type="checkbox" class="checkbox"><label for="checkbox">Finished</label>
-            </div>
-            <div class="entry-content-description-container">
-            <textarea class="description">Hier Kommen Daten rein</textarea>
-            </div>
+
+        <div class="entry-button-container">
+            <button type="submint" name="button_edit">Edit</button>
         </div>
-    </div>
-
-
-    <div class="entry-button-container">
-        <button type="submint" name="button_edit">Edit</button>
-    </div>
+    {{/each}}
+  {{else}}
+      <div class="emptyNotes"><p>No notes found</p></div>
+  {{/if}}
 </section>

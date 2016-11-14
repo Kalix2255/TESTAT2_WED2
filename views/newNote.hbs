@@ -1,12 +1,13 @@
 <header>
     <h3>Neue Todo</h3>
 </header>
-<form>
+<!--Bei Form action immer ABSOLUTEN PFAD mitgeben!!! -->
+<form action='/adNote/' method="post">
     <ul class="flex-outer">
-        <li><label for="input-title">Titel</label><input type="text" id="input-title"></li>
-        <li><label for="input-description">Beschreibung</label><textarea id="input-description"></textarea></li>
-        <li><label for="input-importance">Wichtigkeit</label><input type="text" id="input-importance"></li>
-        <li><label for="input-doneUntil">Fertig bis</label><input type="text" id="input-doneUntil"></li>
+        <li><label for="input-title">Titel</label><input type="text" id="input-title" name="input_title"></li>
+        <li><label for="input-description">Beschreibung</label><textarea id="input-description"  name="input_description"></textarea></li>
+        <li><label for="input-importance">Wichtigkeit</label><input type="number" min="1" max="5" step="1" id="input-importance"  name="input_importance"></li>
+        <li><label for="input-doneUntil">Fertig bis</label><input type="text" id="input-doneUntil"  name="input_doneUntil"></li>
         <li class="form-footer">
             <label></label>
             <div>

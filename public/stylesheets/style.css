@@ -137,6 +137,22 @@ input[type="checkbox"]{
   }
 }
 
+.rating-value[value="1"]:before{
+  content: "★"
+}
+.rating-value[value="2"]:before{
+  content: "★★"
+}
+.rating-value[value="3"]:before{
+  content: "★★★"
+}
+.rating-value[value="4"]:before{
+  content: "★★★★"
+}
+.rating-value[value="5"]:before{
+  content: "★★★★★"
+}
+
 
 
 
