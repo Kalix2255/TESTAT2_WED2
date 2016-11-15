@@ -8,11 +8,8 @@ var router = express.Router();
 
 router.get('/', note.renderSite);
 
+
 router.post('/', note.postData);
 
-/*router.get('/:input_title', function (req, res, next) {
-
-
-});*/
 
 module.exports = router;

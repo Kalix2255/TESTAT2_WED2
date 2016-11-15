@@ -4,18 +4,18 @@
             <a href="/adNote/"><button type="submit" name="button_createNewNote">Create new Note</button></a>
         </div>
         <div>
-            <button type="submit" name="button_styleChange">Change style</button>
+            <a href="?stylechange={{#if options.changestyle}}false{{else}}true{{/if}}"><button type="submit" name="button_styleChange">Change style</button></a>
         </div>
     </nav>
 
     <nav class="main-menu">
         <div class="inner-main-menu">
-        <button type="submit" name="button_byFinishDate">by finish Date</button>
-        <button type="submit" name="button_byCreatedDate">by created Date</button>
-        <button type="submit" name="button_byImportance">by importance</button>
+        <a  href="?finishdate={{#if options.byfinishDate}}false{{else}}true{{/if}}"><button type="submit" name="button_byFinishDate">by finish Date</button></a>
+        <a  href="?createdata={{#if options.bycreateDate}}false{{else}}true{{/if}}"><button type="submit" name="button_byCreatedDate">by created Date</button></a>
+        <a  href="?importance={{#if options.byimportance}}false{{else}}true{{/if}}"> <button type="submit" name="button_byImportance">by importance</button></a>
         </div>
         <div class="inner-main-menu">
-        <button type="submit" name="button_showFinished">show finished</button>
+        <a  href="?finished={{#if options.showfinished}}false{{else}}true{{/if}}"><button type="submit" name="button_showFinished">show finished</button></a>
         </div>
     </nav>
 </header>
