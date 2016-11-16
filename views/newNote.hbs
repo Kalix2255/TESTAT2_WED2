@@ -1,21 +1,26 @@
 <header>
+    {{#if title}}
+        <h3>Edit</h3>
+    {{else}}
     <h3>Neue Todo</h3>
+    {{/if}}
 </header>
 <!--Bei Form action immer ABSOLUTEN PFAD mitgeben!!! -->
 <form action='/adNote/' method="post">
     <ul class="flex-outer">
-        <li><label for="input-title">Titel</label><input type="text" id="input-title" name="input_title"></li>
-        <li><label for="input-description">Beschreibung</label><textarea id="input-description"  name="input_description"></textarea></li>
-        <li><label for="input-importance">Wichtigkeit</label><input type="number" min="1" max="5" step="1" id="input-importance"  name="input_importance"></li>
-        <li><label for="input-doneUntil">Fertig bis</label><input type="text" id="input-doneUntil"  name="input_doneUntil"></li>
+        <li><label for="input-title">Titel</label><input type="text" id="input-title" name="input_title" value="{{title}}" required></li>
+        <li><label for="input-description">Beschreibung</label><textarea id="input-description"  name="input_description" required>{{desc}}</textarea></li>
+        <li><label for="input-importance">Wichtigkeit</label><input type="number" min="1" max="5" step="1" id="input-importance"  name="input_importance" value="{{imp}}" required></li>
+        <li><label for="input-doneUntil">Fertig bis</label><input pattern="(((0?[1-9]|1[0-9]|2[0-9]|3[01]).(0?[13578]|1[02]))|((0?[1-9]|1[0-9]|2[0-9]|3[0]).(0?[469]|11))|((0?[1-9]|1[0-9]|2[0-9]).(0?2))).(20((1[6-9])|([2-9][0-9])))" type="date" id="input-doneUntil"  name="input_doneUntil" value="{{doneU}}" placeholder='dd.mm.yyyy' required></li>
+        <li><input type="text" name="noteID" value="{{_id}}" hidden></li>
         <li class="form-footer">
             <label></label>
             <div>
-            <input type="checkbox">
+            <input type="checkbox" name="state" {{#if on}}checked{{/if}}>
             <label>Erledigt!</label>
             <p>
-                <button type="submit" name="post">Anlegen</button>
-                <button type="reset" name="cancel">Abbrechen</button>
+                <button type="submit" name="post">{{#if title}}Aktualisieren{{else}}Anlegen{{/if}}</button>
+                <a href="?abort=true"><button type="submit" name="cancel">Abbrechen</button></a>
             </p>
             </div>
         </li>

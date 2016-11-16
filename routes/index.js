@@ -3,10 +3,9 @@ var data = require('../services/note')
 var router = express.Router();
 
 let options = {
-    byfinishDate: false,
-    bycreateDate: false,
-    byimportance: false,
-    showfinished: false,
+    orderby: 'doneU',
+    sortdesc: false,
+    showstate: false,
     changestyle: false
 };
 
@@ -24,32 +23,34 @@ router.get('/', function(req, res) {
 
         res.charset = 'utf-8';
         const qOptions = {
-            byfinishDate: req.query.finishdate,
-            bycreateDate: req.query.createdata,
-            byimportance: req.query.importance,
-            showfinished: req.query.finished,
-            changestyle: req.query.stylechange
+            orderby: req.query.orderby,
+            sortdesc: req.query.sortdesc == 'true',
+            showstate:    req.query.showstate == 'true',
+            changestyle:  req.query.stylechange == 'true'
 
     };
 
      setOptions(qOptions, res);
 
 
-    data.getData(function (err, notes) {
+    data.getData(options, function (err, notes) {
 
         //WICHTIG: um render Daten mitzugeben, muss man ihn im zweiten Param. mitgeben
         //notes ist ein array und wird darum in ein neues objekt mit dem gleichen namen gespeichert, damit man cookies oder sonst was auch nocht
         //ins object speichern kann
-        res.render('index', { notes: notes });
+        notedata = {
+            notes : notes,
+            options: options
+        };
+        res.render('index', notedata);
     });
 });
 
 function setOptions(qOptions, res){
     options = {
-        byfinishDate: qOptions.byfinishDate === undefined ? options.byfinishDate : qOptions.byfinishDate,
-        bycreateDate: qOptions.bycreateDate === undefined ? options.bycreateDate : qOptions.bycreateDate,
-        byimptance: qOptions.byimportance === undefined ? options.byimportance : qOptions.byimportance,
-        showfinished: qOptions.showfinished === undefined ? options.showfinished : qOptions.showfinished,
+        orderby: qOptions.orderby === undefined ? options.orderby : qOptions.orderby,
+        sortdesc: qOptions.sortdesc === undefined ? options.sortdesc : qOptions.sortdesc,
+        showstate: qOptions.showstate === undefined ? options.showstate : qOptions.showstate,
         changestyle: qOptions.changestyle === undefined ? options.changestyle : qOptions.changestyle
     };
 

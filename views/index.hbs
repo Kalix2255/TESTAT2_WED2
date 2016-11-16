@@ -10,12 +10,12 @@
 
     <nav class="main-menu">
         <div class="inner-main-menu">
-        <a  href="?finishdate={{#if options.byfinishDate}}false{{else}}true{{/if}}"><button type="submit" name="button_byFinishDate">by finish Date</button></a>
-        <a  href="?createdata={{#if options.bycreateDate}}false{{else}}true{{/if}}"><button type="submit" name="button_byCreatedDate">by created Date</button></a>
-        <a  href="?importance={{#if options.byimportance}}false{{else}}true{{/if}}"> <button type="submit" name="button_byImportance">by importance</button></a>
+        <a  href="?orderby=doneU&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"><button type="submit" name="button_byFinishDate">by finish Date</button></a>
+        <a  href="?orderby=creatingdate&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"><button type="submit" name="button_byCreatedDate">by created Date</button></a>
+        <a  href="?orderby=imp&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"> <button type="submit" name="button_byImportance">by importance</button></a>
         </div>
         <div class="inner-main-menu">
-        <a  href="?finished={{#if options.showfinished}}false{{else}}true{{/if}}"><button type="submit" name="button_showFinished">show finished</button></a>
+            <a  href="?showstate={{#if options.showstate}}false{{else}}true{{/if}}"><button type="submit" name="button_showstate">{{#if options.showstate}}show all{{else}}show finished{{/if}}</button></a>
         </div>
     </nav>
 </header>
@@ -39,17 +39,17 @@
 
             <div class="entry-content-container">
                 <div class="entry-content-check-container">
-                    <input type="checkbox" class="checkbox"><label for="checkbox">Finished</label>
+                    <input type="checkbox" class="checkbox" {{#if state}}checked{{/if}} disabled readonly><label for="checkbox">Finished</label>
                 </div>
                 <div class="entry-content-description-container">
-                <textarea class="description">{{desc}}</textarea>
+                <textarea class="description" disabled readonly>{{desc}}</textarea>
                 </div>
             </div>
         </div>
 
 
         <div class="entry-button-container">
-            <button type="submint" name="button_edit">Edit</button>
+            <a href="/adNote/?id={{this._id}}"><button type="submint" name="button_edit">Edit</button></a>
         </div>
     {{/each}}
   {{else}}
