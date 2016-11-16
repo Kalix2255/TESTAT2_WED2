@@ -2,6 +2,20 @@ var express = require('express');
 var note = require('../controller/noteController.js')
 var router = express.Router();
 
+let options = {
+    orderby: 'doneU',
+    sortdesc: false,
+    showstate: false,
+    changestyle: false
+};
+
+
+router.use((req, res, next) =>{
+    if(req.cookies.options){
+        options = JSON.parse(req.cookies.options);
+    }
+    next();
+});
 
 
 /* GET adNote listing. */
@@ -18,7 +32,7 @@ router.get('/',function (req, res) {
         note.renderEditSite(req, res);
         return;
     }
-        note.renderSite(req, res);
+        note.renderSite(req, res, { options: options });
   });
 
 
@@ -33,6 +47,5 @@ router.post('/', function (req, res) {
 
 
 });
-
 
 module.exports = router;

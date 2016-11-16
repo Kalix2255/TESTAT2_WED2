@@ -24,9 +24,9 @@ router.get('/', function(req, res) {
         res.charset = 'utf-8';
         const qOptions = {
             orderby: req.query.orderby,
-            sortdesc: req.query.sortdesc == 'true',
-            showstate:    req.query.showstate == 'true',
-            changestyle:  req.query.stylechange == 'true'
+            sortdesc: req.query.sortdesc ? req.query.sortdesc == 'true' : undefined,
+            showstate:  req.query.showstate ? req.query.showstate == 'true' : undefined,
+            changestyle:  req.query.changestyle ? req.query.changestyle == 'true' : undefined
 
     };
 
@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
         //WICHTIG: um render Daten mitzugeben, muss man ihn im zweiten Param. mitgeben
         //notes ist ein array und wird darum in ein neues objekt mit dem gleichen namen gespeichert, damit man cookies oder sonst was auch nocht
         //ins object speichern kann
-        notedata = {
+       let notedata = {
             notes : notes,
             options: options
         };

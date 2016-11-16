@@ -5,8 +5,8 @@ var store = require("../services/note.js");
 var qs = require('qs');
 
 
-module.exports.renderSite = function (req, res) {
-    res.render('newNote');
+module.exports.renderSite = function (req, res, data) {
+    res.render('newNote', data);
 
 };
 

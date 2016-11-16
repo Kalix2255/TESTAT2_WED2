@@ -1,58 +1,78 @@
 <header>
     <nav class="pre-menu">
         <div>
-            <a href="/adNote/"><button type="submit" name="button_createNewNote">Create new Note</button></a>
+            <a href="/adNote/">
+                <button type="submit" name="button_createNewNote">Create new Note</button>
+            </a>
         </div>
         <div>
-            <a href="?stylechange={{#if options.changestyle}}false{{else}}true{{/if}}"><button type="submit" name="button_styleChange">Change style</button></a>
+            <a href="?changestyle={{#if options.changestyle}}false{{else}}true{{/if}}">
+                <button type="submit" name="button_styleChange">Change style</button>
+            </a>
         </div>
     </nav>
 
     <nav class="main-menu">
         <div class="inner-main-menu">
-        <a  href="?orderby=doneU&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"><button type="submit" name="button_byFinishDate">by finish Date</button></a>
-        <a  href="?orderby=creatingdate&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"><button type="submit" name="button_byCreatedDate">by created Date</button></a>
-        <a  href="?orderby=imp&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}"> <button type="submit" name="button_byImportance">by importance</button></a>
+            <a href="?orderby=doneU&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}">
+                <button type="submit" name="button_byFinishDate">by finish Date</button>
+            </a>
+            <a href="?orderby=creatingdate&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}">
+                <button type="submit" name="button_byCreatedDate">by created Date</button>
+            </a>
+            <a href="?orderby=imp&sortdesc={{#if options.sortdesc}}false{{else}}true{{/if}}">
+                <button type="submit" name="button_byImportance">by importance</button>
+            </a>
         </div>
         <div class="inner-main-menu">
-            <a  href="?showstate={{#if options.showstate}}false{{else}}true{{/if}}"><button type="submit" name="button_showstate">{{#if options.showstate}}show all{{else}}show finished{{/if}}</button></a>
+            <a href="?showstate={{#if options.showstate}}false{{else}}true{{/if}}">
+                <button type="submit" name="button_showstate">{{#if options.showstate}}
+                    show all{{else}}show finished{{/if}}</button>
+            </a>
         </div>
     </nav>
 </header>
 
+
+{{#if notes}}
+    {{#each notes}}
 <section class="entry">
 
-  {{#if notes}}
-    {{#each notes}}
-        <div class="entry-content">
 
-            <div class="entry-header">
-                <div class="time-title-container">
+    <div class="entry-content">
+
+                <div class="entry-time-finish-container">
+
                     <div class="time-container"><p>{{doneU}}</p></div>
-                    <div class="title-container"><p>{{title}}</p></div>
-                </div>
-                <div class="rating-container">
-                    <div class="rating-value" value="{{imp}}"></div>
+
+                    <div class="content-check-container">
+                        <input type="checkbox" class="checkbox" {{#if state}}checked{{/if}} disabled readonly><label
+                            for="checkbox">Finished</label>
+                    </div>
                 </div>
 
-            </div>
+                <div class="entry-description-container">
 
-            <div class="entry-content-container">
-                <div class="entry-content-check-container">
-                    <input type="checkbox" class="checkbox" {{#if state}}checked{{/if}} disabled readonly><label for="checkbox">Finished</label>
+                    <div class="title-rating-container">
+                        <p>{{title}}</p>
+
+                        <div class="rating-value" value="{{imp}}"></div>
+                    </div>
+
+                    <textarea class="description" disabled readonly>{{desc}}</textarea>
+
                 </div>
-                <div class="entry-content-description-container">
-                <textarea class="description" disabled readonly>{{desc}}</textarea>
+
+                <div class="entry-button-container">
+                    <a href="/adNote/?id={{this._id}}">
+                        <button type="submint" name="button_edit">Edit</button>
+                    </a>
                 </div>
-            </div>
-        </div>
 
+    </div>
 
-        <div class="entry-button-container">
-            <a href="/adNote/?id={{this._id}}"><button type="submint" name="button_edit">Edit</button></a>
-        </div>
-    {{/each}}
-  {{else}}
-      <div class="emptyNotes"><p>No notes found</p></div>
-  {{/if}}
 </section>
+        {{/each}}
+    {{else}}
+        <div class="emptyNotes"><p>No notes found</p></div>
+    {{/if}}
