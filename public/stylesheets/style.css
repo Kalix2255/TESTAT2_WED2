@@ -43,9 +43,6 @@ button:focus{
   margin-right: 10px;
 }
 
-
-
-
 @media (max-width: 557px){
   .flex-outer > li > label{
     text-align: left;

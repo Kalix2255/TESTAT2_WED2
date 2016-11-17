@@ -53,5 +53,6 @@ function updatePostData(id, title, desc, imp, doneU, state, callback){
 }
 
 
+
 //WICHTIG: alle funktionen exportieren damit andere Functionen die sehen
 module.exports = {add : addNote, getData : getData, getDatabyID :getDatabyID, update: updatePostData};
