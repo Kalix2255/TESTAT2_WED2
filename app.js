@@ -4,11 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var adNote = require('./routes/adNote');
-
 var app = express();
+
+
+  let options = {
+  orderby: 'doneU',
+  sortdesc: false,
+  showstate: false,
+  changestyle: false
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +27,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) =>{
+  if(req.cookies.options){
+    req.options = JSON.parse(req.cookies.options);
+  }
+  else{
+    req.options = options;
+  }
+  next();
+});
 
 app.use('/', index);
 app.use('/adNote', adNote);
@@ -42,5 +58,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
