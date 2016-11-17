@@ -29,17 +29,13 @@ function getData(options, callback) {
         .sort({[options.orderby]: (options.sortdesc ? 1 : -1)}).exec(callback);
 }
 
-function getDatabyID(id, res){
- // db.find({$where: function (id) { return Object.is(_id, id);}});
-      
-    db.findOne({_id:id},  function (err, note) {
+function getDatabyID(id, callback){
+    db.findOne({_id:id}).exec(callback);/*,  function (err, note) {
         if(err){
             res.status(err.status || 500);
             res.render('error');
         }
-        res.render('newNote', note);
-
-    });
+    });*/
 
 }
 
