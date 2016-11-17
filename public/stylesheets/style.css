@@ -1,161 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
-p{
-  margin:0px;
+p {
+    margin: 0px;
 }
 
-header{
-  padding: 5px;
-  border-bottom: 1px solid;
-  border-color: grey;
-  margin-bottom: 20px;
+header {
+    padding: 5px;
+    border-bottom: 1px solid;
+    border-color: grey;
+    margin-bottom: 20px;
 }
 
-button{
-  width: 180px;
-  background-color: white;
-  padding: 3px 30px;
-  border: 1px solid grey;
-  border-radius: 5px;
-}
-button:hover{
-  background-color: lightgrey;
-}
-button:focus{
-  background-color: lightgrey;
-  border:1px solid lightskyblue;
-  box-shadow: 0 0 5px grey inset;
+button {
+    width: 180px;
+    background-color: white;
+    padding: 3px 30px;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 
-.flex-outer > li > label{
-  text-align: right;
-  flex: 1 0 160px;
-  width: 160px;
-  max-width: 160px;
-  font-weight: bold;
-  margin-right: 10px;
+button:hover {
+    background-color: lightgrey;
 }
 
-@media (max-width: 557px){
-  .flex-outer > li > label{
-    text-align: left;
-  }
+button:focus {
+    background-color: lightgrey;
+    border: 1px solid lightskyblue;
+    box-shadow: 0 0 5px grey inset;
 }
 
-input, textarea{
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
-}
-input:focus, textarea:focus{
-  box-shadow: 0 0 3px lightskyblue;
-}
-input[type="checkbox"]{
-  margin-left: 0px;
+.newNoteForm {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0px;
 }
 
-
-.time-title-container{
-  display:inline-flex;
-  flex-wrap: wrap;
+.newNoteForm > li {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
-.flex-outer{
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0px;
+.newNoteForm input[type='text'], #input-description {
+    flex: 1 0 360px;
 }
 
-.flex-outer > li{
-  display:flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  align-items: center;
+.newNoteForm > li > label {
+    text-align: right;
+    flex: 1 0 160px;
+    width: 160px;
+    max-width: 160px;
+    font-weight: bold;
+    margin-right: 10px;
 }
 
-.flex-outer input[type='text'], #input-description {
-  flex: 1 0 360px;
+@media (max-width: 557px) {
+    .newNoteForm > li > label {
+        text-align: left;
+    }
 }
 
-.pre-menu, .main-menu{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+input, textarea {
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 
-
-
-
-.rating-value[value="1"]:before{
-  content: "★"
-}
-.rating-value[value="2"]:before{
-  content: "★★"
-}
-.rating-value[value="3"]:before{
-  content: "★★★"
-}
-.rating-value[value="4"]:before{
-  content: "★★★★"
-}
-.rating-value[value="5"]:before{
-  content: "★★★★★"
-}
-.entry{
-  width:100%;
-  display: block;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 5px;
-  box-sizing: border-box;
-
-}
-.entry-content{
-  width:100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-}
-.title-rating-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:space-between;
-
-}
-.entry-description-container{
-  width: 60%;
+input:focus, textarea:focus {
+    box-shadow: 0 0 3px lightskyblue;
 }
 
-.description{
-  width: 100%;
-  box-sizing: border-box;
+input[type="checkbox"] {
+    margin-left: 0px;
 }
 
-.entry-button-container  a  button{
-  width: 100%;
-  height: 100%;
+.time-title-container {
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
+.pre-menu, .main-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-@media (max-width: 768px){
-  .inner-main-menu{
+.rating-value[value="1"]:before {
+    content: "★"
+}
+
+.rating-value[value="2"]:before {
+    content: "★★"
+}
+
+.rating-value[value="3"]:before {
+    content: "★★★"
+}
+
+.rating-value[value="4"]:before {
+    content: "★★★★"
+}
+
+.rating-value[value="5"]:before {
+    content: "★★★★★"
+}
+
+.entry {
+    display: block;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+
+}
+
+.entry-content, .title-rating-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.entry-description-container {
+    width: 60%;
+}
+
+.description {
     width: 100%;
-  }
-  .main-menu button{
+
+}
+
+.entry-button-container a button {
     width: 100%;
-  }
-  .entry-description-container{
-    width: 100%;
-  }
+    height: 100%;
+}
+
+@media (max-width: 386px) {
+    .pre-menu{
+        width: 100%;
+    }
+    .pre-menu-button-container{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .inner-main-menu {
+        width: 100%;
+    }
+
+    .main-menu button {
+        width: 100%;
+    }
+
+    .entry-description-container {
+        width: 100%;
+    }
 
 }
 

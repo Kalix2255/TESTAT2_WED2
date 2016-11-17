@@ -1,11 +1,11 @@
 <header>
     <nav class="pre-menu">
-        <div>
+        <div class="pre-menu-button-container">
             <a href="/adNote/">
                 <button type="submit" name="button_createNewNote">Create new Note</button>
             </a>
         </div>
-        <div>
+        <div  class="pre-menu-button-container">
             <a href="?changestyle={{#if options.changestyle}}false{{else}}true{{/if}}">
                 <button type="submit" name="button_styleChange">Change style</button>
             </a>
@@ -24,6 +24,7 @@
                 <button type="submit" name="button_byImportance">by importance</button>
             </a>
         </div>
+
         <div class="inner-main-menu">
             <a href="?showstate={{#if options.showstate}}false{{else}}true{{/if}}">
                 <button type="submit" name="button_showstate">{{#if options.showstate}}

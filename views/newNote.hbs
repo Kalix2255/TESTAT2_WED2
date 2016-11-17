@@ -7,7 +7,7 @@
 </header>
 <!--Bei Form action immer ABSOLUTEN PFAD mitgeben!!! -->
 <form action='/adNote/' method="post">
-    <ul class="flex-outer">
+    <ul class="newNoteForm">
         <li><label for="input-title">Titel</label><input type="text" id="input-title" name="input_title" value="{{title}}" required></li>
         <li><label for="input-description">Beschreibung</label><textarea id="input-description"  name="input_description" required>{{desc}}</textarea></li>
         <li><label for="input-importance">Wichtigkeit</label><input type="number" min="1" max="5" step="1" id="input-importance"  name="input_importance" value="{{imp}}" required></li>
@@ -25,6 +25,8 @@
             </div>
         </li>
     </ul>
+
+
 
 </form>
 

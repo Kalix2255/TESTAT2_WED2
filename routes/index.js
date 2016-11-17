@@ -27,7 +27,6 @@ router.get('/', function(req, res) {
             sortdesc: req.query.sortdesc ? req.query.sortdesc == 'true' : undefined,
             showstate:  req.query.showstate ? req.query.showstate == 'true' : undefined,
             changestyle:  req.query.changestyle ? req.query.changestyle == 'true' : undefined
-
     };
 
      setOptions(qOptions, res);
@@ -53,11 +52,7 @@ function setOptions(qOptions, res){
         showstate: qOptions.showstate === undefined ? options.showstate : qOptions.showstate,
         changestyle: qOptions.changestyle === undefined ? options.changestyle : qOptions.changestyle
     };
-
     res.cookie('options', JSON.stringify(options));
 }
 
-
-
 module.exports = router;
-
